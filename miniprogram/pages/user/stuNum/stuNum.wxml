@@ -1,0 +1,26 @@
+<!--miniprogram/pages/user/stuNum/stuNum.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">学号绑定</view>
+</cu-custom>
+  <view class="UCenter-bg">
+    <image src="/images/user/绑定 (1).png" class="png" mode="widthFix"></image>
+    <view class="text-xl">学号绑定</view>
+    <image src="https://tva3.sinaimg.cn/large/8d406c5egy1gamn31scsdg20f002skhn.gif" mode="scaleToFill" class="gif-wave"></image>
+  </view>
+  <view class="weui-cells">
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">学号</view>
+      </view>
+      <view class="weui-cell__bd">
+        <input class="weui-input" type="number" placeholder="例如：1807070108" bindinput="studentIDInput" />
+      </view>
+    </view>
+  </view>
+  <view class="weui-cells__tips">* 请确保输入正确，否则将绑定失败</view>
+
+  <view class="padding-xl">
+  <button bindtap="searchStudentID" class="cu-btn block bg-gradual-blue margin-tb-sm lg">
+    <text class="cuIcon-link"></text>绑定</button>
+  </view>

@@ -1,0 +1,4 @@
+<!--pages/message/message.wxml-->
+<cu-custom bgColor="bg-gradual-blue">
+  <view slot="content">ColorUI 空白模板</view>
+</cu-custom>

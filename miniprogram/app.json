@@ -1,0 +1,39 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/user/user",
+    "pages/message/message",
+    "pages/user/stuNum/stuNum"
+  ],
+  "window": {
+    "navigationStyle": "custom"
+  },
+  "tabBar": {
+    "color": "#cdcdcd",
+    "selectedColor": "#1296db",
+    "list": [
+      {
+        "iconPath": "images/tabbar/主页.png",
+        "selectedIconPath": "images/tabbar/主页_active.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "iconPath": "images/tabbar/消息.png",
+        "selectedIconPath": "images/tabbar/消息_active.png",
+        "pagePath": "pages/message/message",
+        "text": "消息"
+      },
+      {
+        "iconPath": "images/tabbar/我.png",
+        "selectedIconPath": "images/tabbar/我_active.png",
+        "pagePath": "pages/user/user",
+        "text": "我的"
+      }
+    ]
+  },
+  "usingComponents": {
+    "cu-custom": "/colorui/components/cu-custom"
+  },
+  "sitemapLocation": "sitemap.json"
+}

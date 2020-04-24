@@ -18,7 +18,7 @@
       </view>
     </view>
   </view>
-  <view class="weui-cells__tips">* 请确保输入正确，否则将绑定失败</view>
+  <view class="weui-cells__tips">* 请确保输入正确，hahaha否则将绑定失败</view>
 
   <view class="padding-xl">
   <button bindtap="searchStudentID" class="cu-btn block bg-gradual-blue margin-tb-sm lg">

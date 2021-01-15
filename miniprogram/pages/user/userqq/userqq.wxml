@@ -1,0 +1,14 @@
+<!--miniprogram/pages/user/userweixin/userweixin.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">QQ绑定</view>
+</cu-custom>
+<form bindsubmit="formSubmit" bindreset="formReset">
+	<view class="cu-form-group margin-top">
+		<view class="title">QQ号码</view>
+		<input placeholder="{{ qqNumber }}" type="number" name="qq"></input>
+	</view>
+	<view class="flex text-center">
+		<button class="cu-btn flex-sub bg-cyan shadow margin-tb-sm lg" style="margin-right:5rpx;margin-left:10rpx" formType="submit">提交</button>
+	</view>
+</form>

@@ -1,0 +1,48 @@
+<!--miniprogram/pages/user/userpage/userpage.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">用户详情</view>
+</cu-custom>
+
+<view class="weui-item border-shadow background-2">
+	<view class="weui-flex">
+		<view class="weui-flex__item">
+			<view class="weui-item__title">
+
+				{{nickName}} / {{stuZhuanye}}
+			</view>
+			<view class="weui-item__desc">
+				{{stuCollege}}
+				<!-- {{info.sex}} / {{info.education}} / {{info.department}} -->
+			</view>
+		</view>
+		<view class="weui-flex__item">
+			<image class="weui-media-box__thumb" style="width:80rpx;height:80rpx;float:right;border-radius: 50%;" src="{{userPhoto}}" />
+		</view>
+	</view>
+	<view class="weui-flex" style="margin-top:20rpx;justify-content:space-between;">
+		<view class="weui-flex__item">
+			<view class="weui-item__desc">
+				<text>{{info.allow_borrow}}20\n已发布</text>
+			</view>
+		</view>
+
+		<view class="weui-flex__item">
+			<view class="weui-item__desc">
+				<text>{{info.borrow_count}}20\n已关注</text>
+			</view>
+		</view>
+		<view class="weui-flex__item">
+			<view class="weui-item__desc">
+				<text>{{info.borrow_count}}20\n粉丝数</text>
+			</view>
+		</view>
+	</view>
+</view>
+
+<scroll-view scroll-x class="bg-white nav">
+	<view class="flex text-center">
+		<button class="cu-btn round block flex-sub line-cyan margin-tb-sm lg" style="margin-right:5rpx;margin-left:10rpx">聊一聊</button>
+		<button class="cu-btn round block flex-sub line-cyan margin-tb-sm lg" style="margin-right:10rpx;margin-left:5rpx">分享</button>
+	</view>
+</scroll-view>

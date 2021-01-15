@@ -2,8 +2,22 @@
   "pages": [
     "pages/index/index",
     "pages/user/user",
-    "pages/message/message",
-    "pages/user/stuNum/stuNum"
+    "pages/user/stuNum/stuNum",
+    "pages/user/userpage/userpage",
+    "pages/index/league/league",
+    "pages/index/activity/activity",
+    "pages/index/published/published",
+    "pages/index/league/write-league/write-league",
+    "pages/index/activity/write_activity/write_activity",
+    "pages/index/detail_1/detail/detail",
+    "pages/index/detail_1/detail1/detail1",
+    "pages/index/league/signup/signup",
+    "pages/user/userphone/userphone",
+    "pages/user/userqq/userqq",
+    "pages/index/signup/signup",
+    "pages/index/detail_1/detail_signup/detail_signup",
+    "pages/index/detail_1/detail_published/detail_published",
+    "pages/index/published/signupuser/signupuser"
   ],
   "window": {
     "navigationStyle": "custom"
@@ -17,12 +31,6 @@
         "selectedIconPath": "images/tabbar/主页_active.png",
         "pagePath": "pages/index/index",
         "text": "首页"
-      },
-      {
-        "iconPath": "images/tabbar/消息.png",
-        "selectedIconPath": "images/tabbar/消息_active.png",
-        "pagePath": "pages/message/message",
-        "text": "消息"
       },
       {
         "iconPath": "images/tabbar/我.png",

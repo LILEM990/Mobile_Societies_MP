@@ -1,0 +1,104 @@
+<!--miniprogram/pages/index/league/league.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">社团纳新</view>
+</cu-custom>
+<scroll-view scroll-x class="bg-white nav">
+	<view class="flex text-center">
+		<view class="cu-item flex-sub {{TabCur==0?'text-blue cur':''}}" bindtap="tabSelect_yuan" data-id="0">院级社团</view>
+		<view class="cu-item flex-sub {{TabCur==1?'text-blue cur':''}}" bindtap="tabSelect_xiao" data-id="1">校级社团</view>
+	</view>
+
+</scroll-view>
+
+<scroll-view hidden="{{TabCur==1}}" scroll-top='{{topNum}}' bindscroll="scrolltoupper" class="scbg" scroll-y='true'>
+	<view wx:if="{{isfresh}}" class="fresh">
+		<view class="cuIcon-loading2"></view> 刷新中
+	</view>
+	<view wx:if="{{freshed}}" class="freshed">
+		<view class=""></view> 刷新成功
+	</view>
+	<block wx:for="{{list_yuan}}" wx:for-item="item" wx:for-index="id">
+		<view class="cu-card dynamic ">
+			<view class="cu-item shadow">
+				<view class="cu-list menu-avatar">
+					<view class="cu-item">
+						<view class="cu-avatar round lg" style="background-image:url({{item.userPhotoid}});"></view>
+						<view class="content flex-sub">
+							<view>{{item.nickName}}</view>
+							<view class="text-gray text-sm flex justify-between">
+								{{item.writetime}}
+							</view>
+						</view>
+					</view>
+				</view>
+				<view class="text-content" bindtap="gotoDetail_yuan" data-name="{{item.name}}" data-title="{{item.title}}" data-date="{{item.date}}" data-time="{{item.time}}" data-address="{{item.address}}" data-xueyuan="{{item.xueyuan}}" data-jianjie="{{item.jianjie}}" data-images_fileid="{{item.images_fileID}}" data-phoneNumber="{{item.phoneNumber}}" data-qqNumber="{{item.qqNumber}}" data-userph="{{item.userPhoto}}" data-id="{{item._id}}" data-userphid="{{item.userPhotoid}}">
+					{{item.jianjie}}
+				</view>
+				<view wx:if="{{item.images_fileID.length}}" class="grid flex-sub padding-lr 'col-3 grid-square'" bindtap="gotoDetail_yuan" data-name="{{item.name}}" data-title="{{item.title}}" data-date="{{item.date}}" data-time="{{item.time}}" data-address="{{item.address}}" data-xueyuan="{{item.xueyuan}}" data-phoneNumber="{{item.phoneNumber}}" data-qqNumber="{{item.qqNumber}}" data-jianjie="{{item.jianjie}}" data-images_fileid="{{item.images_fileID}}" data-id="{{item._id}}" data-userph="{{item.userPhoto}}" data-userphid="{{item.userPhotoid}}">
+					<view class="bg-img" wx:for="{{item.images_fileID}}" wx:key="{{index}}" wx:for-item="items" wx:for-index="ids" data-url="{{item.images_fileID[ids]}}" data-phoneNumber="{{item.phoneNumber}}" data-qqNumber="{{item.qqNumber}}" data-imglist="{{item.images_fileID}}" bindtap="gotoDetail_yuan" data-name="{{item.name}}" data-id="{{item._id}}" data-title="{{item.title}}" data-date="{{item.date}}" data-time="{{item.time}}" data-address="{{item.address}}" data-xueyuan="{{item.xueyuan}}" data-jianjie="{{item.jianjie}}" data-images_fileid="{{item.images_fileID}}" data-userph="{{item.userPhoto}}" data-userphid="{{item.userPhotoid}}">
+						<image src='{{items}}' mode='aspectFill' name="tupian" bindtap="gotoDetail_yuan" data-phoneNumber="{{item.phoneNumber}}" data-qqNumber="{{item.qqNumber}}" data-name="{{item.name}}" data-id="{{item._id}}" data-title="{{item.title}}" data-date="{{item.date}}" data-time="{{item.time}}" data-address="{{item.address}}" data-xueyuan="{{item.xueyuan}}" data-jianjie="{{item.jianjie}}" data-images_fileid="{{item.images_fileID}}" data-userph="{{item.userPhoto}}" data-userphid="{{item.userPhotoid}}"></image>
+					</view>
+				</view>
+				<view class="text-gray text-sm text-right padding">
+					<text class="cuIcon-appreciatefill {{item.isLink? 'linked': ''}} margin-lr-xs" data-num="{{id}}" data-id="{{item._id}}" bindtap="handleLinks"></text> {{item.links}}
+				</view>
+			</view>
+		</view>
+	</block>
+	<view bindtap='handlereleas'>
+		<image class="add_icon1" src="../../../images/fabu.png"></image>
+	</view>
+	<view bindtap='goTop'>
+		<image class="add_icon" src="../../../images/shuaxin.png"></image>
+	</view>
+</scroll-view>
+
+<scroll-view hidden="{{TabCur==0}}" scroll-top='{{topNum}}' bindscroll="scrolltoupper" class="scbg" scroll-y='true'>
+	<view wx:if="{{isfresh}}" class="fresh">
+		<view class="cuIcon-loading2"></view> 刷新中
+	</view>
+	<view wx:if="{{freshed}}" class="freshed">
+		<view class=""></view> 刷新成功
+	</view>
+	<block wx:for="{{list_xiao}}" wx:for-item="item" wx:for-index="id">
+		<view class="cu-card dynamic 'no-card'">
+			<view class="cu-item shadow">
+				<view class="cu-list menu-avatar">
+					<view class="cu-item">
+						<view class="cu-avatar round lg" style="background-image:url({{item.userPhotoid}});"></view>
+						<view class="content flex-sub">
+							<view>{{item.nickName}}</view>
+							<view class="text-gray text-sm flex justify-between">
+								{{item.send_timestamp}}
+							</view>
+						</view>
+					</view>
+				</view>
+				<view class="text-content" data-phoneNumber="{{item.phoneNumber}}" data-qqNumber="{{item.qqNumber}}" bindtap="gotoDetail_xiao" data-name="{{item.name}}" data-title="{{item.title}}" data-id="{{item._id}}" data-date="{{item.date}}" data-time="{{item.time}}" data-address="{{item.address}}" data-xueyuan="{{item.xueyuan}}" data-jianjie="{{item.jianjie}}" data-images_fileid="{{item.images_fileID}}" data-userph="{{item.userPhoto}}" data-userphid="{{item.userPhotoid}}">
+					{{item.jianjie}}
+				</view>
+				<view wx:if="{{item.images_fileID.length}}" data-phoneNumber="{{item.phoneNumber}}" data-qqNumber="{{item.qqNumber}}" class="grid flex-sub padding-lr 'col-3 grid-square'" bindtap="gotoDetail_xiao" data-name="{{item.name}}" data-title="{{item.title}}" data-date="{{item.date}}" data-time="{{item.time}}" data-id="{{item._id}}" data-address="{{item.address}}" data-xueyuan="{{item.xueyuan}}" data-jianjie="{{item.jianjie}}" data-images_fileid="{{item.images_fileID}}" data-userph="{{item.userPhoto}}" data-userphid="{{item.userPhotoid}}">
+					<view class="bg-img" wx:for="{{item.images_fileID}}" wx:key="{{index}}" wx:for-item="items" wx:for-index="ids" data-url="{{item.images_fileID[ids]}}" data-imglist="{{item.images_fileID}}" data-id="{{item._id}}" data-phoneNumber="{{item.phoneNumber}}" data-qqNumber="{{item.qqNumber}}" data-userph="{{item.userPhoto}}" data-userphid="{{item.userPhotoid}}">
+						<image src='{{items}}' mode='aspectFill' name="tupian" bindtap="gotoDetail_xiao" data-name="{{item.name}}" data-title="{{item.title}}" data-date="{{item.date}}" data-id="{{item._id}}" data-phoneNumber="{{item.phoneNumber}}" data-qqNumber="{{item.qqNumber}}" data-time="{{item.time}}" data-address="{{item.address}}" data-xueyuan="{{item.xueyuan}}" data-jianjie="{{item.jianjie}}" data-images_fileid="{{item.images_fileID}}" data-userph="{{item.userPhoto}}" data-userphid="{{item.userPhotoid}}"></image>
+					</view>
+				</view>
+				<view class="text-gray text-sm text-right padding">
+					<text class="cuIcon-appreciatefill {{item.isLink? 'linked': ''}} margin-lr-xs" data-num="{{id}}" data-id="{{item._id}}" bindtap="handleLinks1"></text> {{item.links}}
+				</view>
+			</view>
+		</view>
+	</block>
+	<view bindtap='handlereleas'>
+		<image class="add_icon1" src="../../../images/fabu.png"></image>
+	</view>
+	<view bindtap='goTop'>
+		<image class="add_icon" src="../../../images/shuaxin.png"></image>
+	</view>
+</scroll-view>
+<!-- <view bindtap='handlereleas'>
+	<image class="add_icon1" src="../../../images/发布.png"></image>
+</view>
+<view bindtap='goTop'>
+	<image class="add_icon" src="../../../images/刷新.png"></image>
+</view> -->

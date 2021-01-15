@@ -1,41 +1,54 @@
 <scroll-view scroll-y class="scrollPage">
-  <view class="UCenter-bg">
-    <image src="{{userPhoto}}" class="png" mode="widthFix" style="border-radius: 50%;"></image>
-    <view class="text-xl" wx:if="{{logged}}">{{nickName}}</view>
-    <button wx:else disabled="{{disabled}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" class="cu-btn bg-gray round lg shadow" style="margin:20rpx;font-size: 35rpx">微信登录</button> 
-    <image src="https://tva3.sinaimg.cn/large/8d406c5egy1gamn31scsdg20f002skhn.gif" mode="scaleToFill" class="gif-wave"></image>
-  </view>
+	<view class="UCenter-bg">
+		<image src="{{userPhoto}}" class="png" mode="widthFix" style="border-radius: 50%;"></image>
+		<view class="text-xl" wx:if="{{logged}}">{{nickName}}</view>
+		<button wx:else disabled="{{disabled}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" class="cu-btn bg-gray round lg shadow" style="margin:20rpx;font-size: 35rpx">微信登录</button>
+		<image src="https://tva3.sinaimg.cn/large/8d406c5egy1gamn31scsdg20f002skhn.gif" mode="scaleToFill" class="gif-wave"></image>
+	</view>
 
-   <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
-    <view wx:if="{{stuCollege != ''}}" class="cu-item ">
-      <view class="content" >
-          <text class="text-grey">{{stuCollege}} / {{stuZhuanye}}</text>
-      </view>
-    </view>
+	<view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+		<view wx:if="{{stuCollege != ''}}" class="cu-item ">
+			<view class="content">
+				<text class="text-grey">{{stuCollege}} / {{stuZhuanye}}</text>
+			</view>
+		</view>
 
-    <view wx:else class="cu-item arrow">
-       <button  class="cu-btn content "  bindtap="gotoStuNumber" hover-class="none">
-        <text class="cuIcon-news"></text>
-        <text class="text-grey">学号认证</text>
-      </button>
-    </view>
+		<view wx:else class="cu-item arrow">
+			<button class="cu-btn content " bindtap="gotoStuNumber" hover-class="none">
+				<text class="cuIcon-news"></text>
+				<text class="text-grey">学号认证</text>
+			</button>
+		</view>
 
-    <view class="cu-item arrow">
-      <button class="cu-btn content" open-type="share">
-        <text class="cuIcon-forward"></text>
-        <text class="text-grey">分享小程序</text>
-      </button>
-    </view>
+		<view class="cu-item arrow">
+			<button class="cu-btn content " bindtap="gotophone" hover-class="none">
+				<text class="cuIcon-phone"></text>
+				<text class="text-grey">绑定手机</text>
+			</button>
+		</view>
+		<view class="cu-item arrow">
+			<button class="cu-btn content " bindtap="gotoqq" hover-class="none">
+				<text class="cuIcon-keyboard"></text>
+				<text class="text-grey">绑定QQ</text>
+			</button>
+		</view>
+
+		<view class="cu-item arrow">
+			<button class="cu-btn content" open-type="share">
+				<text class="cuIcon-forward"></text>
+				<text class="text-grey">分享小程序</text>
+			</button>
+		</view>
 
 
-    <view class="cu-item arrow">
-      <button class="cu-btn content"  open-type="contact">
-      <text class="cuIcon-phone"></text>
-        <text class="text-grey">联系我们</text>
-      </button>
-    </view>
-   
+		<view class="cu-item arrow">
+			<button class="cu-btn content" open-type="contact">
+				<text class="cuIcon-info"></text>
+				<text class="text-grey">联系我们</text>
+			</button>
+		</view>
 
-  </view>
-  <view class="cu-tabbar-height"></view>
+
+	</view>
+	<view class="cu-tabbar-height"></view>
 </scroll-view>

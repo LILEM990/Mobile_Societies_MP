@@ -1,0 +1,105 @@
+<!--miniprogram/pages/index/activity/activity.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">活动专区</view>
+</cu-custom>
+<scroll-view scroll-x class="bg-white nav">
+	<view class="flex text-center">
+		<view class="cu-item flex-sub {{index==TabCur?'text-blue cur':''}}" wx:for="{{navbar}}" wx:key bindtap="tabSelect" data-id="{{index}}">
+			{{item}}
+		</view>
+	</view>
+
+</scroll-view>
+
+<scroll-view hidden="{{TabCur!==0}}" scroll-top='{{topNum}}' bindscroll="scrolltoupper" class="scbg" scroll-y='true'>
+	<view wx:if="{{isfresh}}" class="fresh">
+		<view class="cuIcon-loading2"></view> 刷新中
+	</view>
+	<view wx:if="{{freshed}}" class="freshed">
+		<view class=""></view> 刷新成功
+	</view>
+	<block wx:for="{{list_activity}}" wx:for-item="item" wx:for-index="id">
+
+
+		<view class="cu-card article ">
+			<view class="cu-item shadow">
+				<view class="title">
+					<view class="text-cut">{{item.title}}</view>
+				</view>
+				<view class="content">
+					<image wx:if="{{item.images_fileID.length}}" src="{{item.images_fileID[0]}}" mode="aspectFill" bindtap="gotoDetail" data-name="{{item.name}}" data-title="{{item.title}}" data-location="{{item.location}}" data-date="{{item.date}}" data-time="{{item.time}}" data-jianjie="{{item.jianjie}}" data-images_fileid="{{item.images_fileID}}" data-userph="{{item.userPhoto}}"></image>
+					<view class="desc">
+						<view class="text-content" bindtap="gotoDetail" data-name="{{item.name}}" data-title="{{item.title}}" data-location="{{item.location}}" data-date="{{item.date}}" data-time="{{item.time}}" data-jianjie="{{item.jianjie}}" data-images_fileid="{{item.images_fileID}}" data-userph="{{item.userPhoto}}"> {{item.jianjie}}</view>
+						<view>
+							<view class="cu-tag bg-red light sm round" bindtap="gotoDetail" data-name="{{item.name}}" data-title="{{item.title}}" data-location="{{item.location}}" data-date="{{item.date}}" data-time="{{item.time}}" data-jianjie="{{item.jianjie}}" data-images_fileid="{{item.images_fileID}}" data-userph="{{item.userPhoto}}">查看详情</view>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+
+
+		<!-- <view class="cu-card dynamic ">
+			<view class="cu-item shadow">
+				<view class="cu-list menu-avatar">
+					<view class="cu-item">
+						<view class="cu-avatar round lg" style="background-image:url({{item.userPhoto}});"></view>
+						<view class="content flex-sub">
+							<view>{{item.nickName}}</view>
+							<view class="text-gray text-sm flex justify-between">
+								{{item.writetime}}
+							</view>
+						</view>
+					</view>
+				</view>
+				<view class="text-content">
+					<view class="title">{{item.title}}</view>
+					<view class="jianjie">————{{item.name}}</view>
+				</view>
+				<view wx:if="{{item.images_fileID.length}}" class="grid flex-sub padding-lr 'col-3 grid-square'">
+					<view class=" " wx:for="{{item.images_fileID}}" wx:key="{{index}}" wx:for-item="items" wx:for-index="ids">
+						<image src='{{items}}' mode='aspectFill' name="tupian"></image>
+					</view>
+				</view>
+			</view>
+		</view> -->
+	</block>
+	<view bindtap='handlereleas'>
+		<image class="add_icon1" src="../../../images/fabu.png"></image>
+	</view>
+	<view bindtap='goTop'>
+		<image class="add_icon" src="../../../images/shuaxin.png"></image>
+	</view>
+</scroll-view>
+<scroll-view hidden="{{TabCur!==1}}" scroll-top='{{topNum}}' bindscroll="scrolltoupper" class="scbg" scroll-y='true'>
+	<view wx:if="{{isfresh}}" class="fresh">
+		<view class="cuIcon-loading2"></view> 刷新中
+	</view>
+	<view wx:if="{{freshed}}" class="freshed">
+		<view class=""></view> 刷新成功
+	</view>
+	<block wx:for="{{list}}" wx:for-item="item" wx:for-index="id">
+		<view class="cu-timeline">
+			<view class="cu-time">{{item.date}}</view>
+			<block wx:for="{{item.data}}" wx:key="{{index}}" wx:for-item="items" wx:for-index="ids">
+				<view class="cu-item">
+					<view class="content">
+						<view class="cu-capsule radius">
+							<view class="cu-tag line-red" bindtap="gotoDetail" data-name="{{items[0].name}}" data-title="{{items[0].title}}" data-location="{{items[0].location}}" data-date="{{items[0].date}}" data-time="{{items[0].time}}" data-jianjie="{{items[0].jianjie}}" data-images_fileid="{{items[0].images_fileID}}" data-userph="{{items[0].userPhoto}}">{{items[0].time}}</view>
+							<view class="cu-tag line-orange" bindtap="gotoDetail" data-name="{{items[0].name}}" data-title="{{items[0].title}}" data-location="{{items[0].location}}" data-date="{{items[0].date}}" data-time="{{items[0].time}}" data-jianjie="{{items[0].jianjie}}" data-images_fileid="{{items[0].images_fileID}}" data-userph="{{items[0].userPhoto}}">{{items[0].location}}</view>
+							<view class="cu-tag line-yellow" bindtap="gotoDetail" data-name="{{items[0].name}}" data-title="{{items[0].title}}" data-location="{{items[0].location}}" data-date="{{items[0].date}}" data-time="{{items[0].time}}" data-jianjie="{{items[0].jianjie}}" data-images_fileid="{{items[0].images_fileID}}" data-userph="{{items[0].userPhoto}}">{{items[0].name}}</view>
+						</view>
+						<view class="margin-top" bindtap="gotoDetail" data-name="{{items[0].name}}" data-title="{{items[0].title}}" data-location="{{items[0].location}}" data-date="{{items[0].date}}" data-time="{{items[0].time}}" data-jianjie="{{items[0].jianjie}}" data-images_fileid="{{items[0].images_fileID}}" data-userph="{{items[0].userPhoto}}">{{items[0].title}}</view>
+					</view>
+				</view>
+			</block>
+		</view>
+	</block>
+	<view bindtap='handlereleas'>
+		<image class="add_icon1" src="../../../images/fabu.png"></image>
+	</view>
+	<view bindtap='goTop'>
+		<image class="add_icon" src="../../../images/shuaxin.png"></image>
+	</view>
+</scroll-view>

@@ -1,2 +1,12 @@
-.index-swiper{margin:20rpx;height:430rpx;border-radius: 10rpx; overflow: hidden;}
-.index-swiper image{ width: 100%; border-radius: 10rpx; overflow: hidden;}
+.index-swiper {
+  margin: 20rpx;
+  height: 350rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+
+.index-swiper image {
+  width: 100%;
+  border-radius: 10rpx;
+  overflow: hidden;
+}

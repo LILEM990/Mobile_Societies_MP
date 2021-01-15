@@ -24,25 +24,25 @@ Page({
         content: '请输入学号，例如：1807070108',
         showCancel: false
       })
-    }else{
-      var that=this;
+    } else {
+      var that = this;
       db.collection('students').where({
-        status : '0',
-        stuNumber : this.data.studentID,
-      }).get().then((res)=>{
-        if(res.data.length){
+        status: '0',
+        stuNumber: this.data.studentID,
+      }).get().then((res) => {
+        if (res.data.length) {
           var stuNumber = res.data[0].stuNumber
           wx.showModal({
             title: '提示',
-            content: '请仔细检查学号('+stuNumber+'),一旦绑定将无法修改,是否确定？',
-            success (res) {
+            content: '请仔细检查学号(' + stuNumber + '),一旦绑定将无法修改,是否确定？',
+            success(res) {
               if (res.confirm) {
                 that.updateStunum();
-              } 
+              }
             }
           })
         }
-        else{
+        else {
           wx.showModal({
             content: '抱歉，学号不存在或已被绑定',
             showCancel: false
@@ -51,46 +51,58 @@ Page({
       })
     }
   },
-  updateStunum(){
+  updateStunum() {
     db.collection('students').where({
-      stuNumber : this.data.studentID,
-    }).get().then((res)=>{
+      status: '0',
+      stuNumber: this.data.studentID,
+    }).get().then((res) => {
       //console.log(res)
-      if(res.data.length){
+      if (res.data.length) {
         this.setData({
-          nickName : res.data[0].stuName,
-          stuCollege :res.data[0].stuCollege,
-          stuZhuanye :res.data[0].stuZhuanye,
+          nickName: res.data[0].stuName,
+          stuCollege: res.data[0].stuCollege,
+          stuZhuanye: res.data[0].stuZhuanye,
         })
         db.collection('users').doc(app.userInfo._id).update({
-          data : {
-            stuNumber : res.data[0].stuNumber,
-            stuCollege :res.data[0].stuCollege,
-            stuZhuanye :res.data[0].stuZhuanye,
+          data: {
+            nickName: res.data[0].stuName,
+            stuNumber: res.data[0].stuNumber,
+            stuCollege: res.data[0].stuCollege,
+            stuZhuanye: res.data[0].stuZhuanye,
           }
-        }).then((res)=>{
+        }).then((res) => {
           //wx.hideLoading();
           var pages = getCurrentPages();
-          if(pages.length > 1){
+          if (pages.length > 1) {
             //上一个页面实例对象
             var prePage = pages[pages.length - 2];
             //关键在这里
             prePage.setData({
-              nickName : this.data.nickName,
-              stuCollege :this.data.stuCollege,
-              stuZhuanye :this.data.stuZhuanye,
+              nickName: this.data.nickName,
+              stuCollege: this.data.stuCollege,
+              stuZhuanye: this.data.stuZhuanye,
             })
-            
-            wx.switchTab({
-              url: '../../user/user'
+
+            wx.cloud.callFunction({
+              name: 'stuNum',
+              data: {
+                stuNumber: this.data.studentID
+              }
+            }).then((res) => {
+            })
+
+            app.userInfo.stuCollege = this.data.stuCollege;
+            console.log(app.userInfo.stuCollege)
+            wx.navigateBack({
+              delta: 1
             })
             wx.showToast({
               title: '绑定成功'
             });
-        }
+          }
         })
       }
-      else{
+      else {
         wx.showModal({
           content: '查询不到信息，请确保学号输入正确',
           showCancel: false
@@ -151,6 +163,6 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-    
+
   }
 })

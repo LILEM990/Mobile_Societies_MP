@@ -1,0 +1,22 @@
+<!--miniprogram/pages/index/signup/signup.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">我的报名</view>
+</cu-custom>
+<view wx:for='{{list_shetuan}}' wx:key="{{index}}" wx:for-item="item" wx:for-index="id">
+	<view class="cu-list menu-avatar">
+		<view class="cu-item ">
+			<view class="cu-avatar radius lg" bindtap="gotodetail" data-shetuanid="{{item.shetuanid}}" style="background-image:url({{item.photo}});"></view>
+			<view class="content" bindtap="gotodetail" data-shetuanid="{{item.shetuanid}}">
+				<view class="text-pink">
+					<text class="text-cut">{{item.shetuanname}}</text>
+				</view>
+				<view class="text-gray text-sm flex">
+					<text class="text-cut">{{item.shetuantitle}}</text>
+				</view>
+			</view>
+
+		</view>
+	</view>
+
+</view>

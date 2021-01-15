@@ -1,0 +1,60 @@
+<!--pages/WeChat/detail/detail.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+	<view slot="backText">返回</view>
+</cu-custom>
+<view class="start">
+	<image src="{{ url }}" mode="aspectFill"></image>
+	<view style="position:absolute;top:250rpx;left:30rpx;color:#57faff;font-size:large;">{{ activecontent }}</view>
+	<view style="position:absolute;top:300rpx;left:30rpx;color:#2b2b2b;background-color:#57faff;">{{ state }}</view>
+	<view style="position:absolute;top:350rpx;left:30rpx;color:#57faff;">{{ id }}</view>
+	<view style="position:absolute;top:350rpx;left:280rpx;color:#57faff;">{{ person }}</view>
+</view>
+
+<!--社团简介-->
+<view class="societyname">
+	<view class="poster">
+		<image src="{{ photo }}"></image>
+	</view>
+	<view class="society">
+		<text class="na">{{ societyname }}</text>
+		<text class="deta">{{ societydetail }}</text>
+	</view>
+</view>
+<view class="introduction">
+	<text class="tit">活动简介</text>
+	<text class="intro {{ellipsis?'ellipsis':'unellipsis'}}" >{{ content }}</text>
+	<text class='ellipsis_text' hidden='{{content.length<=maxLength}}'  bindtap='ellipsis'>{{ellipsis?"展开":"收起"}}</text>
+</view>
+
+<!--时间范围-->
+<view class="time">
+	<view class="time-title">时间范围</view>
+	<view class="name">
+		<view>活动日期</view>
+		<view class="nametime">{{ nametime }}</view>
+	</view>
+	<view class="game">
+		<view>活动时间</view>
+		<view class="gametime">{{ gametime }}</view>
+	</view>
+</view>
+
+<!--活动地点-->
+<view class="item">
+	<view class="title">活动地点</view>
+	<view class="content">
+		<view>当前活动地点为</view>
+		<view class="detail">{{ addressdetail }}</view>
+	</view>
+</view>
+
+<!--社团风貌轮播图-->
+<view wx:if="{{imgUrls.length}}" class="seco">
+	<swiper indicator-dots="{{true}}" autoplay="{{true}}" circular="true" interval="3000">
+		<view wx:for="{{imgUrls}}" wx:key="*this" bindtap="ViewImage" data-url="{{imgUrls[index]}}" data-imgList="{{imgUrls}}">
+			<swiper-item>
+				<image src="{{item}}" class="slide-image" mode='aspectFill' />
+			</swiper-item>
+		</view>
+	</swiper>
+</view>

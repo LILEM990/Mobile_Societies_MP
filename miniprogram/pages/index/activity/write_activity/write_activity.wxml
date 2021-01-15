@@ -1,0 +1,65 @@
+<!--miniprogram/pages/index/activity/write_activity/write_activity.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">发布活动</view>
+</cu-custom>
+<form bindsubmit="formSubmit" bindreset="formReset">
+	<view class="cu-form-group margin-top">
+		<view class="title">社团名称</view>
+		<input placeholder="告诉大家社团的名字！" name="name"></input>
+	</view>
+	
+	<view class="cu-form-group margin-top">
+		<view class="title">活动名称</view>
+		<input placeholder="告诉大家你们的活动吧~" name="title"></input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">活动地点</view>
+		<input placeholder="告诉大家活动的地点！" name="location"></input>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">活动日期</view>
+		<picker mode="date" value="{{date}}" start="2020-01-01" end="2050-09-01" name="date" bindchange="DateChange">
+			<view class="picker">
+				{{date}}
+			</view>
+		</picker>
+	</view>
+	<view class="cu-form-group">
+		<view class="title">活动时间</view>
+		<picker mode="time" value="{{time}}" start="00:00" end="23:59" name="time" bindchange="TimeChange">
+			<view class="picker">
+				{{time}}
+			</view>
+		</picker>
+	</view>
+	<view class="cu-form-group align-start">
+		<view class="title">活动简介</view>
+		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaBInput" placeholder="介绍一下你们的活动吧!" name="jianjie"></textarea>
+	</view>
+	<view class="cu-bar bg-white margin-top">
+		<view class="action">
+			社团海报
+		</view>
+		<view class="action">
+			{{imgList.length}}/1
+		</view>
+	</view>
+	<view class="cu-form-group">
+		<view class="grid col-4 grid-square flex-sub">
+			<view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+				<image src='{{imgList[index]}}' mode='aspectFill' name="tupian"></image>
+				<view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+					<text class="cuIcon-close"></text>
+				</view>
+			</view>
+			<view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<1}}">
+				<text class="cuIcon-cameraadd"></text>
+			</view>
+		</view>
+	</view>
+	<view class="flex text-center">
+		<button class="cu-btn flex-sub bg-cyan shadow margin-tb-sm lg" style="margin-right:10rpx;margin-left:5rpx" formType="reset">重置</button>
+		<button class="cu-btn flex-sub bg-cyan shadow margin-tb-sm lg" style="margin-right:5rpx;margin-left:10rpx" formType="submit">提交</button>
+	</view>
+</form>

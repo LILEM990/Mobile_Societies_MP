@@ -1,0 +1,245 @@
+/* pages/WeChat/detail/detail.wxss */
+
+.start {
+  height: 300rpx;
+}
+
+.start image {
+  height: 100%;
+  width: 100%;
+}
+
+.root {
+  flex: 1;
+}
+
+.time {
+  flex-direction: column;
+  border-top: solid 1px;
+  border-top-color: #cccccc;
+  border-bottom: solid 1px;
+  border-bottom-color: #cccccc;
+  margin: 20rpx;
+  padding-bottom: 15rpx;
+  height: 90px;
+}
+
+.time-title {
+  display: block;
+  margin: 20rpx;
+  font-size: large;
+}
+
+.name {
+  display: flex;
+  margin-left: 20rpx;
+  font-size: small;
+}
+
+.nametime {
+  flex: 1;
+  text-align: right;
+}
+
+.game {
+  display: flex;
+  margin-left: 20rpx;
+  font-size: small;
+}
+
+.gametime {
+  flex: 1;
+  text-align: right;
+}
+
+
+.item {
+  flex-direction: column;
+  border-bottom: solid 1px;
+  border-bottom-color: #cccccc;
+  margin: 20rpx;
+  height: 75px;
+}
+
+.title {
+  display: block;
+  margin: 30rpx 0 30rpx 20rpx;
+  margin-bottom: 35rpx;
+  font-size: large;
+}
+
+.content {
+  display: flex;
+  margin-left: 20rpx;
+  font-size: small;
+}
+
+.detail {
+  flex: 1;
+  text-align: right;
+}
+
+.console {
+  display: flex;
+  height: 100rpx;
+}
+
+.consult {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffcc33;
+  color: aliceblue;
+}
+
+.enroll {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #33cccc;
+  color: aliceblue;
+}
+
+.societyname {
+  display: flex;
+  margin: 30rpx 0 30rpx 38rpx;
+}
+
+.poster image {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 20%;
+}
+
+.society {
+  flex: 1;
+  font-size: small;
+  margin-left: 25rpx;
+}
+
+.society .na {
+  display: block;
+  font-size: 30rpx;
+}
+
+.introduction {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20rpx;
+}
+
+.tit {
+  display: block;
+  margin-left: 20rpx;
+  font-size: large;
+}
+
+.intro {
+  font-weight: 500;
+  border-top: solid 1px;
+  border-top-color: #cccccc;
+  margin: 0 20rpx 0 20rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.ellipsis {
+  -webkit-line-clamp: 3;
+  opacity: 0.75
+}
+
+.unellipsis {
+  -webkit-line-clamp: 0;
+  opacity: 1
+}
+
+.ellipsis_text {
+  width: 100%;
+  font-size: small;
+  text-align: center
+}
+
+.seco {
+  height: 300rpx;
+  margin: 0 20rpx 20rpx 20rpx;
+}
+
+.seco image {
+  width: 100%;
+  height: 100%;
+}
+
+.arrow {
+  display: inline-block;
+  border: 6px solid transparent;
+  border-top-color: #000;
+  margin-left: 8px;
+  position: relative;
+  top: 6rpx;
+}
+
+/* ---------------------------- */
+/*模态框*/
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.modal-cancel {
+  position: absolute;
+  z-index: 2000;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.bottom-dialog-body {
+  width: 100%;
+  position: absolute;
+  z-index: 3000;
+  bottom: 0;
+  left: 0;
+  background: #dfdede;
+}
+
+/*动画前初始位置*/
+.bottom-positon {
+  -webkit-transform: translateY(100%);
+  transform: translateY(100%);
+}
+
+
+/* 底部弹出框 */
+.bottom-positon {
+  text-align: center;
+}
+
+.Mselect {
+  margin-bottom: 20rpx;
+}
+
+.Mselect view {
+  padding: 26rpx 0;
+  background: #fff;
+}
+
+.Mselect view:not(:last-of-type) {
+  border-bottom: 1px solid #dfdede;
+}
+
+.Mcancel {
+  background: #fff;
+  padding: 26rpx 0;
+}

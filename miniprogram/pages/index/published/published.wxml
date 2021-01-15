@@ -1,0 +1,76 @@
+<!--miniprogram/pages/index/published/published.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+	<view slot="backText">返回</view>
+	<view slot="content">我的发布</view>
+</cu-custom>
+<view class="cu-bar bg-white solid-bottom" wx:if='{{logged}}'>
+	<view class="action">
+		<text class="cuIcon-titles text-orange"></text> 社团纳新
+	</view>
+</view>
+<scroll-view hidden="{{TabCur==1}}" scroll-top='{{topNum}}' bindscroll="scrolltoupper" class="scbg" scroll-y='true'>
+	<block wx:for="{{list_message}}" wx:for-item="item" wx:for-index="id">
+		<view class="cu-card dynamic ">
+			<view class="cu-item shadow">
+				<view class="cu-list menu-avatar">
+					<view class="cu-item">
+						<view class="cu-avatar round lg" style="background-image:url({{item.userPhotoid}});" bindtap="gotoDetail" data-fenlei="{{item.fenlei}}" data-name="{{item.name}}" data-title="{{item.title}}" data-date="{{item.date}}" data-time="{{item.time}}" data-address="{{item.address}}" data-id="{{item._id}}" data-xueyuan="{{item.xueyuan}}" data-jianjie="{{item.jianjie}}" data-images_fileid="{{item.images_fileID}}" data-phoneNumber="{{item.phoneNumber}}" data-qqNumber="{{item.qqNumber}}" data-userph="{{item.userPhoto}}"></view>
+						<view class="content flex-sub">
+							<view bindtap="gotoDetail" data-fenlei="{{item.fenlei}}" data-id="{{item._id}}" data-name="{{item.name}}" data-title="{{item.title}}" data-date="{{item.date}}" data-time="{{item.time}}" data-address="{{item.address}}" data-xueyuan="{{item.xueyuan}}" data-jianjie="{{item.jianjie}}" data-images_fileid="{{item.images_fileID}}" data-phoneNumber="{{item.phoneNumber}}" data-qqNumber="{{item.qqNumber}}" data-userph="{{item.userPhoto}}">{{item.nickName}}</view>
+							<view class="text-gray text-sm flex justify-between" bindtap="gotoDetail" data-fenlei="{{item.fenlei}}" data-name="{{item.name}}" data-title="{{item.title}}" data-id="{{item._id}}" data-date="{{item.date}}" data-time="{{item.time}}" data-address="{{item.address}}" data-xueyuan="{{item.xueyuan}}" data-jianjie="{{item.jianjie}}" data-images_fileid="{{item.images_fileID}}" data-phoneNumber="{{item.phoneNumber}}" data-qqNumber="{{item.qqNumber}}" data-userph="{{item.userPhoto}}">
+								{{item.writetime}}
+							</view>
+						</view>
+					</view>
+				</view>
+				<view class="text-content" bindtap="gotoDetail" data-fenlei="{{item.fenlei}}" data-name="{{item.name}}" data-title="{{item.title}}" data-date="{{item.date}}" data-id="{{item._id}}" data-time="{{item.time}}" data-address="{{item.address}}" data-xueyuan="{{item.xueyuan}}" data-jianjie="{{item.jianjie}}" data-images_fileid="{{item.images_fileID}}" data-phoneNumber="{{item.phoneNumber}}" data-qqNumber="{{item.qqNumber}}" data-userph="{{item.userPhoto}}">
+					{{item.jianjie}}
+				</view>
+				<view wx:if="{{item.images_fileID.length}}" class="grid flex-sub padding-lr 'col-3 grid-square'" bindtap="gotoDetail" data-fenlei="{{item.fenlei}}" data-id="{{item._id}}" data-name="{{item.name}}" data-title="{{item.title}}" data-date="{{item.date}}" data-time="{{item.time}}" data-address="{{item.address}}" data-xueyuan="{{item.xueyuan}}" data-jianjie="{{item.jianjie}}" data-images_fileid="{{item.images_fileID}}" data-phoneNumber="{{item.phoneNumber}}" data-qqNumber="{{item.qqNumber}}" data-userph="{{item.userPhoto}}">
+					<view class="bg-img" wx:for="{{item.images_fileID}}" wx:key="{{index}}" wx:for-item="items" wx:for-index="ids" bindtap="gotoDetail" data-fenlei="{{item.fenlei}}" data-id="{{item._id}}" data-name="{{item.name}}" data-title="{{item.title}}" data-date="{{item.date}}" data-time="{{item.time}}" data-address="{{item.address}}" data-xueyuan="{{item.xueyuan}}" data-jianjie="{{item.jianjie}}" data-images_fileid="{{item.images_fileID}}" data-phoneNumber="{{item.phoneNumber}}" data-qqNumber="{{item.qqNumber}}" data-userph="{{item.userPhoto}}">
+						<image src='{{items}}' mode='aspectFill' name="tupian" bindtap="gotoDetail" data-fenlei="{{item.fenlei}}" data-name="{{item.name}}" data-title="{{item.title}}" data-id="{{item._id}}" data-date="{{item.date}}" data-time="{{item.time}}" data-address="{{item.address}}" data-xueyuan="{{item.xueyuan}}" data-jianjie="{{item.jianjie}}" data-images_fileid="{{item.images_fileID}}" data-phoneNumber="{{item.phoneNumber}}" data-qqNumber="{{item.qqNumber}}" data-userph="{{item.userPhoto}}"></image>
+					</view>
+				</view>
+				<view class="text-blue text-sm text-right padding flex solid-bottom padding justify-end">
+					<view padding-sm margin-xs bindtap="deleteleague" data-id="{{item._id}}">删除</view>
+				</view>
+			</view>
+		</view>
+	</block>
+</scroll-view>
+
+<view class="cu-bar bg-white solid-bottom" wx:if='{{logged}}'>
+	<view class="action">
+		<text class="cuIcon-titles text-pink"></text> 社团活动
+	</view>
+</view>
+<scroll-view hidden="{{TabCur==1}}" scroll-top='{{topNum}}' bindscroll="scrolltoupper" class="scbg" scroll-y='true'>
+	<block wx:for="{{list_activity}}" wx:for-item="item" wx:for-index="id">
+		<view class="cu-card dynamic ">
+			<view class="cu-item shadow">
+				<view class="cu-list menu-avatar">
+					<view class="cu-item">
+						<view class="cu-avatar round lg" style="background-image:url({{item.userPhotoid}});"></view>
+						<view class="content flex-sub">
+							<view>{{item.nickName}}</view>
+							<view class="text-gray text-sm flex justify-between">
+								{{item.writetime}}
+							</view>
+						</view>
+					</view>
+				</view>
+				<view class="text-content" bindtap="gotoDetail1" data-name="{{item.name}}" data-title="{{item.title}}" data-location="{{item.location}}" data-date="{{item.date}}" data-time="{{item.time}}" data-jianjie="{{item.jianjie}}" data-images_fileid="{{item.images_fileID}}" data-userph="{{item.userPhoto}}">
+					{{item.jianjie}}
+				</view>
+				<view wx:if="{{item.images_fileID.length}}" class="grid flex-sub padding-lr 'col-3 grid-square'">
+					<view class="bg-img" wx:for="{{item.images_fileID}}" wx:key="{{index}}" wx:for-item="items" wx:for-index="ids" bindtap="ViewImage" data-url="{{item.images_fileID[ids]}}" data-imglist="{{item.images_fileID}}">
+						<image src='{{items}}' mode='aspectFill' name="tupian"></image>
+					</view>
+				</view>
+				<view class="text-blue text-sm text-right padding flex solid-bottom padding justify-end">
+					<view padding-sm margin-xs bindtap="deleteactivity" data-id="{{item._id}}">删除</view>
+				</view>
+			</view>
+		</view>
+	</block>
+</scroll-view>

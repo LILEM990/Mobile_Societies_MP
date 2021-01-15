@@ -14,6 +14,7 @@
 	"libVersion": "2.8.1",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
+	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -35,7 +36,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": -1,
 			"list": [
 				{
 					"id": -1,
@@ -54,6 +55,125 @@
 					"id": -1,
 					"name": "pages/user/stuNum/stuNum",
 					"pathName": "pages/user/stuNum/stuNum",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/message/message",
+					"pathName": "pages/message/message",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/user/userpage/userpage",
+					"pathName": "pages/user/userpage/userpage",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/index/league/league",
+					"pathName": "pages/index/league/league",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/write-league/write-league",
+					"pathName": "pages/write-league/write-league",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/index/league/new-league-message/new-league-message",
+					"pathName": "pages/index/league/new-league-message/new-league-message",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/index/lost property/write-lost/write-lost",
+					"pathName": "pages/index/lost property/write-lost/write-lost",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/index/activity/showtime/showtime",
+					"pathName": "pages/index/activity/showtime/showtime",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/index/activity/write_activity/write_activity",
+					"pathName": "pages/index/activity/write_activity/write_activity",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/index/activity/activity",
+					"pathName": "pages/index/activity/activity",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/index/activity/write_activity/write_activity",
+					"pathName": "pages/index/activity/write_activity/write_activity",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/index/detail/detail",
+					"pathName": "pages/index/detail/detail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/index/league/signup/signup",
+					"pathName": "pages/index/league/signup/signup",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/message/chat/chat",
+					"pathName": "pages/message/chat/chat",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/index/detail_1/detail/detail",
+					"pathName": "pages/index/detail_1/detail/detail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/user/userpage/userpage",
+					"pathName": "pages/user/userpage/userpage",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/index/published/signupuser/signupuser",
+					"pathName": "pages/index/published/signupuser/signupuser",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/index/detail_1/detail_published/detail_published",
+					"pathName": "pages/index/detail_1/detail_published/detail_published",
 					"scene": null
 				}
 			]

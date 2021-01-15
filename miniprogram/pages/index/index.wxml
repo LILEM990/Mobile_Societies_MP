@@ -1,20 +1,25 @@
 <cu-custom bgColor="bg-gradual-blue">
-  <view slot="content">首页</view>
+	<view slot="content">首页</view>
 </cu-custom>
 <view>
-  <swiper indicator-dots="{{true}}" class="index-swiper"
-        autoplay="{{true}}" interval="3000" duration="700" circular="true">
-        <block wx:for="{{imgUrls}}" wx:key="{{index}}">
-          <swiper-item >
-            <image mode="aspectFill" src="{{item}}" class="slide-image"></image>
-          </swiper-item>
-        </block>
-      </swiper>
+	<swiper indicator-dots="{{true}}" class="index-swiper" autoplay="{{true}}" interval="3000" duration="700" circular="true">
+		<block wx:for="{{imgUrls}}" wx:key="{{index}}">
+			<swiper-item>
+				<image mode="aspectFill" src="{{item}}" class="slide-image"></image>
+			</swiper-item>
+		</block>
+	</swiper>
 </view>
-<view class="padding flex flex-direction">
+<!-- <view class="padding flex flex-direction">
  <button class="cu-btn bg-cyan margin-tb-sm lg" style="height:120rpx">社团生活</button>
 </view>
 <view class="padding flex flex-direction" >
  <button class="cu-btn bg-cyan margin-tb-sm lg" style="height:120rpx">失物招领</button>
+</view> -->
+<view class='nav-list'>
+	<navigator open-type="navigate" hover-class='none' url="/pages/index/{{item.name}}/{{item.name}}" class="nav-li bg-{{item.color}}" wx:for="{{elements}}" wx:key>
+		<view class="nav-title">{{item.title}}</view>
+		<view class="nav-name">{{item.name}}</view>
+		<text class='cuIcon-{{item.icon}}'></text>
+	</navigator>
 </view>
-
